@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-  url := "https://fruityvice.com/api/fruit/banana"
+  url := "https://goweather.herokuapp.com/weather/Mashhad"
   method := "GET"
 
   client := &http.Client {
