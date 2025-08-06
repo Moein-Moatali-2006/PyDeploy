@@ -17,7 +17,7 @@ pieces_name = {
 }
 
 @app.get("/")
-async def root():
+def root():
     return "API for information of six chess pieces"
 
 @app.get("/pieces")
@@ -25,7 +25,7 @@ async def pieces():
     return list(pieces_name.keys())
 
 @app.get("/pieces/{piece_name}")
-async def players(piece_name:str):
+def players(piece_name:str):
     if piece_name in pieces_name:
         return pieces_name[piece_name]
     else:
