@@ -1,15 +1,19 @@
-import io
 import cv2
 import easyocr
 import numpy as np
 
 from deepface import DeepFace
 from fastapi import FastAPI, HTTPException, UploadFile, status, File
-from fastapi.responses import StreamingResponse
 
 
 app = FastAPI()
 render = easyocr.Reader(["en", "fa"])
+
+face_models = {
+    "age": DeepFace.build_model("Age"),
+    "gender": DeepFace.build_model("Gender"),
+    "emotion": DeepFace.build_model("Emotion")
+}
 
 @app.get("/")
 def read_root():
@@ -47,9 +51,11 @@ async def image_face_analysis(input_file: UploadFile= File(None)):
     np_array = np.frombuffer(content, dtype=np.uint8)
     image = cv2.imdecode(np_array, cv2.IMREAD_UNCHANGED)
 
-    result = DeepFace.analyze(image, actions=["gender", "age", "emotion"])
-    print(result)
-    # return {}
+    result = DeepFace.analyze(
+        img_path=image,
+        actions=["gender", "age", "emotion"],             
+        enforce_detection=False,
+        detector_backend="opencv"
+    )
 
-
-   
+    return {"result": result}
