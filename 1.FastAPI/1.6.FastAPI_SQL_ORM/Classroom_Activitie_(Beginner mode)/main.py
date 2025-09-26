@@ -48,9 +48,8 @@ def create_user(name: str, email: str, db: Session = Depends(get_db)):
 @app.delete("/users")
 def remove_user(user_id : int, db: Session= Depends(get_db)):
     user = db.query(User).filter(User.id == user_id).first()
-    user = db.query(User).filter(User.id == user_id).first()
     if user is None:
         raise HTTPException(status_code=404, detail="User not found!")
     db.delete(user)
     db.commit()
-    return {"Message":"User deleted succsesfully."}
+    return {"Message":"User deleted successfully."}
