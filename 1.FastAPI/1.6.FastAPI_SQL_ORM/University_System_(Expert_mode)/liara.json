@@ -1,0 +1,8 @@
+{
+  "app": "moein-liara",
+  "port": 80,
+  "build": {
+    "location": "iran"
+  },
+  "disks": []
+}
