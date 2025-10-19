@@ -1,8 +1,8 @@
 {
-  "app": "moein-liara",
-  "port": 80,
-  "build": {
-    "location": "iran"
-  },
-  "disks": []
+"app":"moein-moatali"
+"port":80
+"build":{
+"location":"iran"
+}
+"disks":[]
 }
