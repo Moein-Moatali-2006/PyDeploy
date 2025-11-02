@@ -1,12 +1,13 @@
 from fastapi import FastAPI, Depends
 from sqlmodel import Session, select
-from backend.db import init_db, get_session
+from backend.database import init_db, get_session
 from backend.models import User, AI, Message
+from backend.auth_routes import router as auth_router
 import requests
 from datetime import datetime
 
-app = FastAPI(title="ChatVibe API")
-
+app = FastAPI(title="ChatBot")
+app.include_router(auth_router, prefix="/auth", tags=["Authentication"])
 
 @app.on_event("startup")
 def on_startup():
