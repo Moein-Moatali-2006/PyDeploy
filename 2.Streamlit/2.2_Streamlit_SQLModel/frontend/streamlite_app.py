@@ -1,13 +1,11 @@
 import streamlit as st
 import requests
 
-API_URL = "http://127.0.0.1:8000/auth"  # آدرس FastAPI
+API_URL = "http://127.0.0.1:8000/auth" 
 
 st.set_page_config(page_title="ChatVibe Login", page_icon="💬", layout="centered")
-
 st.title("💬 ChatVibe Login")
 
-# حالت فعلی (login یا register)
 mode = st.radio("Select mode:", ["Login", "Register"], horizontal=True)
 
 username = st.text_input("Username")
@@ -45,6 +43,6 @@ if st.button(mode):
             st.session_state["user_id"] = data["user_id"]
             st.session_state["username"] = username
             st.session_state["logged_in"] = True
-            st.switch_page("frontend/streamlit_chat.py")  # رفتن به صفحه چت
+            st.switch_page("frontend/streamlit_chat.py") 
         else:
             st.error(response.json().get("detail", "Something went wrong."))
