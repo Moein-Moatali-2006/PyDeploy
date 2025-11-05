@@ -17,9 +17,9 @@ The chatbot connects to a **free LLM API** (e.g., ApiFreeLLM) to provide AI resp
 
 ## Screenshots
 
-![Register]()  
-![Login/Register]()  
-![Chatbot]()
+![Register](https://github.com/Moein-Moatali-2006/PyDeploy/blob/main/2.Streamlit/2.2_Streamlit_SQLModel/img/register.png)  
+![Login](https://github.com/Moein-Moatali-2006/PyDeploy/blob/main/2.Streamlit/2.2_Streamlit_SQLModel/img/login.png)  
+![Chatbot](https://github.com/Moein-Moatali-2006/PyDeploy/blob/main/2.Streamlit/2.2_Streamlit_SQLModel/img/chatbot.png)
 
 ---
 
