@@ -1,5 +1,5 @@
 import streamlit as st
-from sqlmodel import Session
+from sqlmodel import Session, select, and_
 from models import Register, engine
 
 
@@ -13,9 +13,22 @@ selected_option = st.radio(
 if selected_option == "log in":
     st.subheader("🔑login to your account")
     with st.form("login_form"):
-        st.text_input("Username:", key="login_username")
-        st.text_input("Password:", type="password", key="login_password")
-        st.form_submit_button("login")
+        username = st.text_input("Username:", key="login_username")
+        password = st.text_input("Password:", type="password", key="login_password")
+        login_btn = st.form_submit_button("login")
+
+        if login_btn:
+            with Session(engine) as session:
+                statement = select(Register).where(and_(
+                    Register.username == username,
+                    Register.password == password
+                ))
+                result = session.exec(statement).first()
+                if result:
+                    st.success("✅ login")
+                    pass
+                else:
+                    st.error("Please Register!")
 #Register
 elif selected_option == "Register":
     st.subheader("📝 Register new user")
