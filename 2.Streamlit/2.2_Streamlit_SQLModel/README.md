@@ -1,116 +1,110 @@
-# ChatVibe - AI Chat Application
+# Streamlit Chatbot with Login/Register and LLM API
 
-ChatVibe is a simple AI-powered chat application built using **Python**, **FastAPI**, **Streamlit**, and **SQLModel**. Users can register, log in, and chat with an AI. All conversations are saved in a SQLite database.
+This project is a **web‑based chatbot application** built with **Streamlit** and **SQLModel** for login/register functionality.  
+The chatbot connects to a **free LLM API** (e.g., ApiFreeLLM) to provide AI responses in real‑time.
 
 ---
 
 ## Features
 
-- User registration and login system
-- AI-powered chat using external API (e.g., OpenAI or HuggingFace)
-- Message history stored in SQLite database
-- Clean and minimal frontend with Streamlit
-- Secure endpoints using FastAPI
+- User **registration** and **login** system with SQLite database.
+- Session‑based **chat interface** with message history.
+- Integration with **LLM API** to generate AI responses.
+- **Logout** button to end session and clear chat history.
+- Clean UI using Streamlit’s chat message components.
 
 ---
 
-## Technologies Used
+## Screenshots
 
-- Python 3.10+
-- FastAPI
-- Streamlit
-- SQLModel (with SQLite)
-- Requests (for communicating with AI API)
-
----
-
-## Project Structure
-
-```
-chat-Bot/
-├─ backend/
-│  ├─ app.py             # FastAPI entrypoint
-│  ├─ models.py          # SQLModel models (User, AI, Message)
-│  ├─ db.py              # Database engine and session
-│  ├─ auth_routes.py     # Registration and login endpoints
-│  └─ chat_routes.py     # Chat endpoints (optional separate file)
-├─ frontend/
-│  ├─ streamlit_login.py # Streamlit login/register UI
-│  └─ streamlit_chat.py  # Streamlit chat UI
-└─ requirements.txt      # Python dependencies
-```
+![Register]()  
+![Login/Register]()  
+![Chatbot]()
 
 ---
 
 ## Installation
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/yourusername/chatvibe.git
-cd chatBot
+git clone 
+cd Chatbot
 ```
 
-2. Create and activate a virtual environment:
+2. Install dependencies:
+
 ```bash
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
+pip install ‑r requirements.txt
 ```
 
-3. Install dependencies:
+> **Note:** If you don’t have `requirements.txt`, install manually:
 ```bash
-pip install -r requirements.txt
+pip install streamlit sqlmodel requests
 ```
-
----
-
-## Setup
-
-1. Run the FastAPI backend:
-```bash
-uvicorn backend.app:app --reload
-```
-
-2. Run the Streamlit frontend:
-```bash
-streamlit run frontend/streamlit_login.py
-```
-
-3. Open your browser at `http://localhost:8501`
 
 ---
 
 ## Usage
 
-1. Register a new user or login with existing credentials.
-2. After login, you'll be redirected to the chat interface.
-3. Type a message and click **Send** to chat with the AI.
-4. Your messages and AI responses are saved automatically in the database.
+1. Run the Streamlit app:
+
+```bash
+streamlit run main.py
+```
+
+2. Open the browser at `http://localhost:8501`.
+
+3. **Register** a new user or **login** with existing credentials.
+
+4. Start chatting with the AI chatbot.
+
+5. Use **Logout** to end the session and clear chat history.
 
 ---
 
-## AI API Integration
+## Database
 
-Currently, the application uses a placeholder API for AI responses. You can replace it with any AI service, such as OpenAI GPT or HuggingFace API.
+- This project uses **SQLite** via SQLModel.
+- The database file will be created automatically when you run the app.
+- Table: `Register` with columns:
+  - `id` (primary key)
+  - `username`
+  - `email`
+  - `password`
 
-Example in `app.py`:
-```python
-api_url = "https://api-inference.huggingface.co/models/gpt2"
-headers = {"Authorization": "Bearer YOUR_API_KEY"}
-payload = {"inputs": message}
-response = requests.post(api_url, headers=headers, json=payload)
-ai_reply = response.json()[0]["generated_text"]
+---
+
+## LLM API
+
+- The chatbot is connected to a free LLM API (e.g., ApiFreeLLM).  
+- Messages are sent via **POST requests** and responses are displayed in real‑time.
+
+---
+
+## Folder Structure
+
+```
+Chatbot/
+│
+├── main.py           # Main Streamlit app
+├── models.py         # SQLModel database models
+├── database.db       # SQLite database file (auto‑created)
+├── requirements.txt  # Python dependencies
+└── README.md         # This file
 ```
 
 ---
 
 ## License
 
-This project is licensed under the MIT License.
+This project is **MIT Licensed** — feel free to use and modify.
 
 ---
 
-## Author
+## Contact
 
-Moein Moatali - [GitHub](https://github.com/yourusername)
+Created by **Moein Moatali**  
+Email: MoeinMoatali@gmail.com 
+
 

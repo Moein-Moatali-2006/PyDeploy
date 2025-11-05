@@ -1,0 +1,4 @@
+typing
+sqlmodel
+requests
+streamlit
