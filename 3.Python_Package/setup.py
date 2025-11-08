@@ -1,18 +1,13 @@
-from setuptools import setup
-
-def pre_install():
-    # f = open("README.md")
-    # text = f.read()
-    text = "Describe"
-    return text
+from setuptools import setup, find_packages
 
 setup(
-    name="amoo_moein_lion",
+    name="MIGA",
     version="1.0.0",
+    description="Geography of Iran using Python Turtle.",
+    long_description=open("README.md", encoding="utf-8").read(),
+    long_description_content_type="text/markdown",
     author="Moein Moatali",
-    description="A test package for moein",
-    long_description=pre_install(),
-    requires=[],
     author_email="MoeinMoatali@gmail.com",
-    packages=["amoo_moein_lion"]
+    packages=find_packages(include=["MIGA", "MIGA.*"]),
+    include_package_data=True,
 )
