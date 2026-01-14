@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 
 app = Flask("Test Prpject")
 
+
 @app.route("/", methods=["GET"])
 def my_root():
     name = "Moein"
