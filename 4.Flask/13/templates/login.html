@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block onvan %}
+    ثبت نام
+{% endblock %}
+
+{% block content %}
+    <title>Login</title>
+</head>
+<body>
+
+    <h1>Login Page</h1>
+
+    <form method="post">
+        email: <input type="text" name="email">
+        <br>
+        password: <input type="text" name="password">
+        <br>
+        <input type="submit">
+    </form>
+
+{% endblock %}
