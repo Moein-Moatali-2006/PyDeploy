@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block onvan %}
+    ثبت نام
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-4">
+        <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <form method="post">
+                city: <input type="text" name="city"> 
+                <br>
+                name: <input type="text" name="username"> 
+                <br>
+                password: <input type="text" name="password"> 
+                <input type="submit">
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
