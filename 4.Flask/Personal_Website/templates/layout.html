@@ -1,0 +1,59 @@
+<!-- templates/layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}My Developer Site{% endblock %}</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="static\css\bootstrap.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static\css\style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg" style="background-color: rgb(44, 57, 48);">
+    <div class="container">
+      <a class="navbar-brand text-light" href="">DevSite</a>
+      <button class="navbar-toggler btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-light" href="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="content">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="blog">Blog</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Login/Register
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="login">Login</a></li>
+              <li><a class="dropdown-item" href="register">Register</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="container my-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Bootstrap JS Bundle (Popper + JS) -->
+  <script src="static\js\bootstrap.js"></script>
+  <script src="static\js\bootstrap.bundle.min.js"></script>
+</body>
+</html>
