@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}Contact - Moein Moatali{% endblock %}
+
+{% block content %}
+
+<div class="p-4" style="background-color: rgb(44, 57, 48); border-radius: 8px;">
+
+  <div class="row g-4">
+
+    <!-- Contact Form -->
+    <div class="col-md-7">
+      <h2 class="text-light mb-4">Get in Touch</h2>
+
+      <form method="post">
+        <div class="mb-3">
+          <label class="form-label text-light">Phone Number</label>
+          <input name="user_phone_number" type="text" class="form-control" placeholder="+98..." />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-light">Email</label>
+          <input name="user_email" type="email" class="form-control" placeholder="example@gmail.com" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-light">Message</label>
+          <textarea name="user_text" class="form-control" rows="5" placeholder="Your message..."></textarea>
+        </div>
+
+        <button type="submit" class="btn" style="background-color: rgb(162, 123, 92); color: #fff;">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="col-md-5">
+      <h2 class="text-light mb-4">Contact Info</h2>
+
+      <p class="text-light mb-1"><strong>Name:</strong> Moein Moatali</p>
+      <p class="text-light mb-1"><strong>Phone:</strong> +989030813097</p>
+      <p class="text-light mb-3"><strong>Email:</strong> MoeinMoatali@gmail.com</p>
+
+      <h5 class="text-light mt-4 mb-3">Social Links</h5>
+      <div class="d-flex gap-3 mb-4">
+        <a href="https://t.me/MoeinMoatali" class="btn btn-outline-light btn-sm">Telegram</a>
+        <a href="https://instagram.com/Moein_Moatali" class="btn btn-outline-light btn-sm">Instagram</a>
+        <a href="https://github.com/Moein-Moatali-2006" class="btn btn-outline-light btn-sm">GitHub</a>
+        <a href="https://www.linkedin.com/in/moein-moatali-59093a25a" class="btn btn-outline-light btn-sm">LinkedIn</a>
+      </div>
+
+      <!-- CV Download -->
+      <a href="{{ url_for('static', filename='files/Moein_Moatali_CV.pdf') }}"
+         class="btn"
+         style="background-color: rgb(162, 123, 92); color: #fff;"
+         download>
+        Download CV
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
