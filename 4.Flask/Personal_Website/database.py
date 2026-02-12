@@ -11,13 +11,13 @@ class Register(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     firstname: str
     lastname: str
-    age: int
     email: str
+    username: str
+    age: int
     city: str
-    phone_number: str
-    job: str
-    company_name: str
+    country: str
     password: str
+    jointime: str
 
 def make_database(bool):
     if bool:

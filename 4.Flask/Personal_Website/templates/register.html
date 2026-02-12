@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}Register - Moein Moatali{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+  <div class="p-4" style="background-color: rgb(44, 57, 48); border-radius: 10px;">
+
+    <h2 class="text-light mb-4 text-center">Create Account</h2>
+
+    {% if username_exists %}
+        <script>
+            alert("Username already exists!");
+        </script>
+    {% endif %}
+
+
+    <form method="POST">
+
+      <div class="row g-3">
+
+        <!-- First Name -->
+        <div class="col-md-6">
+          <label class="form-label text-light">First Name</label>
+          <input type="text" class="form-control" name="firstname" required>
+        </div>
+
+        <!-- Last Name -->
+        <div class="col-md-6">
+          <label class="form-label text-light">Last Name</label>
+          <input type="text" class="form-control" name="lastname" required>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6">
+          <label class="form-label text-light">Email</label>
+          <input type="email" class="form-control" name="email" required>
+        </div>
+
+        <!-- Username -->
+        <div class="col-md-6">
+          <label class="form-label text-light">Username</label>
+          <input type="text" class="form-control" name="username" required>
+        </div>
+
+        <!-- Age -->
+        <div class="col-md-4">
+          <label class="form-label text-light">Age</label>
+          <input type="number" class="form-control" name="age" min="1">
+        </div>
+
+        <!-- City -->
+        <div class="col-md-4">
+          <label class="form-label text-light">City</label>
+          <input type="text" class="form-control" name="city">
+        </div>
+
+        <!-- Country -->
+        <div class="col-md-4">
+          <label class="form-label text-light">Country</label>
+          <input type="text" class="form-control" name="country">
+        </div>
+
+        <!-- Password -->
+        <div class="col-md-6">
+          <label class="form-label text-light">Password</label>
+          <input type="password" class="form-control" name="password" required>
+        </div>
+
+      </div>
+
+      <div class="mt-4 text-center">
+        <button type="submit"
+                class="btn px-5"
+                style="background-color: rgb(162, 123, 92); color: white;">
+          Register
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
