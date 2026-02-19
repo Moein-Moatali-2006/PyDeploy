@@ -131,3 +131,4 @@ def logout():
 @app.route("/blog")
 def blog():
     return render_template("blog.html")
+
