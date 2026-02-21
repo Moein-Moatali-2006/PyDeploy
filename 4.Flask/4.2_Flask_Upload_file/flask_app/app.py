@@ -68,3 +68,21 @@ def result():
         age = info["age"]
 
     return render_template("result.html", age=age)
+
+# BMR
+@app.route("/bmr", methods=["GET", "POST"])
+def bmr():
+    if request.method == "POST":
+        weight = float(request.form.get("weight"))
+        height = float(request.form.get("height"))
+        age = float(request.form.get("age"))
+        gender = request.form.get("gender")
+
+        if gender == "Male":
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5
+        elif gender == "Female":
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161
+
+        return render_template("bmr.html", alert=True, bmr=bmr)
+    
+    return render_template("bmr.html")
