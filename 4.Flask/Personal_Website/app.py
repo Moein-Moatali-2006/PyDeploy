@@ -1,13 +1,13 @@
 import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import Flask, request, url_for, redirect, render_template, session
+from flask import Flask, request, url_for, redirect, render_template, session, flash
 from sqlmodel import Session, select
 from pydantic import BaseModel, ValidationError
 from database import Contact, Register, make_database
 
 
 app = Flask("Personal Website")
-app.config["SECRET_KEY"] = "change_this_secret_key"
+app.config["SECRET_KEY"] = "MMGA"
 
 # Make databse: sqlite
 engine = make_database(True)
@@ -105,16 +105,18 @@ def login():
                 db_user = db.scalar(statement)
 
                 if not db_user:
+                    flash("Username Not Found", "danger")
                     return render_template("login.html", login_error=True)
 
                 if not check_password_hash(db_user.password, user_data.password):
+                    flash("Password is incorrect.", "danger")
                     return render_template("login.html", login_error=True)
 
                 # Login success
                 session["user_id"] = db_user.id
                 session["username"] = db_user.username
 
-                return redirect(url_for("root"))
+                return redirect(url_for("blog"))
 
         except ValidationError:
             return render_template("login.html", login_error=True)
@@ -130,5 +132,8 @@ def logout():
 # Blog
 @app.route("/blog")
 def blog():
-    return render_template("blog.html")
+    if session.get("user_id") and session.get("username"):
+        return render_template("blog.html")
+    else:
+        return {"Message": "Page not found 404!, Please login!"}
 
